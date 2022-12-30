@@ -4,7 +4,8 @@ import com.culysoft.algafood.modelo.Cliente;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-@Qualifier("normal")
+
+@TipoNotificadocao
 @Component
 public class NotificadorEmail implements Notificador {
 
