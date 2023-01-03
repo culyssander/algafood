@@ -1,7 +1,8 @@
 package com.culysoft.algafood.jpa;
 
 import com.culysoft.algafood.Application;
-import com.culysoft.algafood.domain.model.Cozinha;;
+import com.culysoft.algafood.domain.model.Cozinha;
+import org.apache.catalina.core.ApplicationContext;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
