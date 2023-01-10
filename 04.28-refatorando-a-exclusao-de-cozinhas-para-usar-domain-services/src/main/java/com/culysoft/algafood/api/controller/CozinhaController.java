@@ -1,6 +1,8 @@
 package com.culysoft.algafood.api.controller;
 
 import com.culysoft.algafood.api.model.CozinhasXmlWrapper;
+import com.culysoft.algafood.domain.exception.EntidadeEmUsoException;
+import com.culysoft.algafood.domain.exception.EntidadeNaoEncontradaException;
 import com.culysoft.algafood.domain.service.CozinhaService;
 import com.culysoft.algafood.domain.model.Cozinha;
 import com.culysoft.algafood.domain.repository.CozinhaRepository;
@@ -68,15 +70,11 @@ public class CozinhaController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Cozinha> remover(@PathVariable Long id) {
         try {
-            Cozinha cozinha = cozinhaRepository.buscaPeloId(id);
-
-            if (cozinha == null)
-                return ResponseEntity.notFound().build();
-
-            cozinhaRepository.remover(cozinha);
-
+            cozinhaService.remover(id);
             return ResponseEntity.noContent().build();
-        } catch (DataIntegrityViolationException e) {
+        } catch (EntidadeNaoEncontradaException e) {
+            return ResponseEntity.notFound().build();
+        } catch (EntidadeEmUsoException e) {
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
         }
     }

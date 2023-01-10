@@ -1,4 +1,4 @@
-package com.culysoft.algafood.domain;
+package com.culysoft.algafood.domain.service;
 
 import com.culysoft.algafood.domain.model.Cozinha;
 import com.culysoft.algafood.domain.repository.CozinhaRepository;
